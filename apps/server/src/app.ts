@@ -105,21 +105,49 @@ export async function createApp(
       browserConfigured: Boolean(config.workerUrl && config.workerToken),
     }),
   );
-  let loginWindow = 0,
-    loginAttempts = 0;
-  app.post("/api/session", async (c) => {
-    if (Date.now() - loginWindow > 60000) {
-      loginWindow = Date.now();
-      loginAttempts = 0;
+  // Simple per-endpoint attempt windows for the auth routes below.
+  const attemptWindows = new Map<string, { window: number; attempts: number }>();
+  const checkAttempts = (key: string, limit: number, message: string) => {
+    const now = Date.now();
+    const entry = attemptWindows.get(key) ?? { window: now, attempts: 0 };
+    if (now - entry.window > 60000) {
+      entry.window = now;
+      entry.attempts = 0;
     }
-    if (++loginAttempts > 30)
-      throw new AppError("Too many sign-in attempts. Try again in a minute.", 429);
-    const body = z.object({ accessKey: z.string().optional() }).parse(await c.req.json());
-    const session = await auth.session(body.accessKey);
-    await workspace.ensureSample("local-user", actions);
-    await agent.ensure("local-user");
-    if (config.mode === "sample") await agent.refreshIdeas("local-user");
+    if (++entry.attempts > limit) throw new AppError(message, 429);
+    attemptWindows.set(key, entry);
+  };
+  const bootstrapOwner = async (owner: string) => {
+    await workspace.ensureSample(owner, actions);
+    await agent.ensure(owner);
+    if (config.mode === "sample") await agent.refreshIdeas(owner);
+  };
+  app.post("/api/session", async (c) => {
+    checkAttempts("session", 30, "Too many sign-in attempts. Try again in a minute.");
+    const body = z
+      .object({
+        accessKey: z.string().optional(),
+        username: z.string().optional(),
+        password: z.string().optional(),
+      })
+      .parse(await c.req.json());
+    const passwordLogin = Boolean(body.username?.trim());
+    const session = passwordLogin
+      ? await auth.login(body.username ?? "", body.password ?? "")
+      : await auth.session(body.accessKey);
+    const owner = passwordLogin ? (body.username ?? "").trim().toLowerCase() : "local-user";
+    await bootstrapOwner(owner);
     return c.json(session);
+  });
+  app.post("/api/users/signup", async (c) => {
+    checkAttempts("signup", 10, "Too many signup attempts. Try again in a minute.");
+    const body = z
+      .object({ username: z.string().min(1).max(64), password: z.string().min(1).max(256) })
+      .parse(await c.req.json());
+    const session = await auth.signup(body.username, body.password);
+    const owner = body.username.trim().toLowerCase();
+    await bootstrapOwner(owner);
+    return c.json(session, 201);
   });
   app.get("/api/google/callback", async (c) => {
     if (c.req.query("error"))

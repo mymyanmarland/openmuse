@@ -67,7 +67,7 @@ export type ComputerProvider = "docker" | "e2b-desktop";
 export const defaultJevModel = "jev-1.13.0";
 
 export const intelligenceKeyRequiredMessage =
-  "OpenMuse requires CPK_INTELLIGENCE_API_KEY. " +
+  "Rich Threads need CPK_INTELLIGENCE_API_KEY. " +
   "Run `npx copilotkit@latest login` and `npx copilotkit@latest project select`, " +
   "then set the generated server-only key. " +
   "See https://docs.copilotkit.ai/intelligence/connect-your-runtime";
@@ -77,14 +77,15 @@ export function required(name: string, message: string, value = process.env[name
   return value.trim();
 }
 
-export function assertApiDeploymentConfig(
-  config: Config,
-): asserts config is Config & { intelligenceApiKey: string } {
-  required(
-    "CPK_INTELLIGENCE_API_KEY",
-    intelligenceKeyRequiredMessage,
-    config.intelligenceApiKey ?? "",
-  );
+/** Intelligence is optional: without a key the server runs in SSE mode and chat
+ * falls back to the local conversation. Only Rich Threads (durable thread list,
+ * rename/archive/restore, cross-device history) need the key. */
+export function assertApiDeploymentConfig(config: Config): void {
+  if (!config.intelligenceApiKey?.trim()) {
+    console.warn(
+      "[OpenMuse] CPK_INTELLIGENCE_API_KEY is not set. " + intelligenceKeyRequiredMessage,
+    );
+  }
 }
 
 /** Accept a full worker URL, or host:port from a platform that omits the scheme. */
@@ -149,7 +150,7 @@ export function readConfig(): Config {
     agentBackend: backend,
     agentUrl: process.env.AGENT_URL,
     agentToken: process.env.AGENT_TOKEN,
-    intelligenceApiKey: required("CPK_INTELLIGENCE_API_KEY", intelligenceKeyRequiredMessage),
+    intelligenceApiKey: process.env.CPK_INTELLIGENCE_API_KEY?.trim() || undefined,
     googleClientId: process.env.GOOGLE_CLIENT_ID,
     googleClientSecret: process.env.GOOGLE_CLIENT_SECRET,
     googleRedirectUri: `${publicUrl}/api/google/callback`,

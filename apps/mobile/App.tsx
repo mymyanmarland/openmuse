@@ -40,6 +40,7 @@ import { Details } from "./src/details";
 import { BrowserScreen, CalendarScreen, FilesScreen, MailScreen } from "./src/screens";
 import { ThreadsProvider, ThreadsSheet, useMuseThread } from "./src/threads";
 import { Button, Card, colors, ErrorNotice, Field, IconButton, Mascot, s } from "./src/ui";
+import { brand } from "./src/brand";
 import { strings } from "./src/strings";
 import { type Detail, useWorkspace, WorkspaceContext } from "./src/workspace";
 
@@ -126,7 +127,7 @@ export default function App() {
             <Text
               style={{ fontSize: 32, color: colors.text, letterSpacing: -1, fontWeight: "500" }}
             >
-              Welcome to OpenMuse.
+              {brand.welcomeTitle}
             </Text>
             <Text style={[s.muted, { textAlign: "center" }]}>{strings.app.tagline}</Text>
             {busy ? (

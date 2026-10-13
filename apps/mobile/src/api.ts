@@ -29,15 +29,33 @@ export class MuseApi {
 
 export async function createSession(
   accessKey?: string,
+  username?: string,
+  password?: string,
 ): Promise<{ token: string; mode: "sample" | "live" }> {
   const response = await fetch(`${API_URL}/api/session`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ accessKey }),
+    body: JSON.stringify({ accessKey, username, password }),
   });
   const payload = await readApiPayload<{ token: string; mode: "sample" | "live" }>(
     response,
     "Could not open your workspace.",
+  );
+  return payload;
+}
+
+export async function createAccount(
+  username: string,
+  password: string,
+): Promise<{ token: string; mode: "sample" | "live" }> {
+  const response = await fetch(`${API_URL}/api/users/signup`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ username, password }),
+  });
+  const payload = await readApiPayload<{ token: string; mode: "sample" | "live" }>(
+    response,
+    "Could not create your account.",
   );
   return payload;
 }

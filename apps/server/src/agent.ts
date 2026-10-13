@@ -7,6 +7,7 @@ import {
   createCopilotHonoHandler,
 } from "@copilotkit/runtime/v2";
 import type { Auth } from "./auth.ts";
+import { brand } from "./brand.ts";
 import type { Config } from "./config.ts";
 import { ConversationAgent } from "./engine/conversation.ts";
 import type { AgentService } from "./engine/service.ts";
@@ -52,7 +53,7 @@ export function makeRuntime(
     };
   };
   // The shared CopilotKit sink carries this tag onto existing PostHog events.
-  const telemetryProperties = { accessibility_title: "OpenMuse" };
+  const telemetryProperties = { accessibility_title: brand.name };
   // Without an Intelligence key the runtime runs in SSE mode: chat and tools work,
   // but threads are not durable server-side (the app falls back to the local
   // conversation). identifyUser is an Intelligence-mode option only.
@@ -63,7 +64,7 @@ export function makeRuntime(
         telemetryProperties,
         identifyUser: async (request) => ({
           id: await auth.owner(request.headers.get("authorization") ?? undefined),
-          name: "OpenMuse user",
+          name: `${brand.name} user`,
         }),
         generateThreadNames: false,
       })

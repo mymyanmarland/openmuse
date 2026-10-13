@@ -28,19 +28,12 @@ function liveConfig(intelligenceApiKey?: string): Config {
   };
 }
 
-const missingKeyMessage =
-  "OpenMuse requires CPK_INTELLIGENCE_API_KEY. " +
-  "Run `npx copilotkit@latest login` and `npx copilotkit@latest project select`, " +
-  "then set the generated server-only key. " +
-  "See https://docs.copilotkit.ai/intelligence/connect-your-runtime";
-
-test("every API mode rejects a missing or blank Intelligence key", () => {
+test("every API mode accepts a missing or blank Intelligence key (Rich Threads disabled)", () => {
   for (const mode of [sampleConfig, liveConfig()]) {
     for (const key of [undefined, "", " \t\n"]) {
-      assert.throws(() => assertApiDeploymentConfig({ ...mode, intelligenceApiKey: key }), {
-        name: "Error",
-        message: missingKeyMessage,
-      });
+      assert.doesNotThrow(() =>
+        assertApiDeploymentConfig({ ...mode, intelligenceApiKey: key }),
+      );
     }
   }
 });

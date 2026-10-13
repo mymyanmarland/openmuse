@@ -147,7 +147,7 @@ Copy the commented settings in [.env.example](.env.example) into your private `.
 4. Configure a Google OAuth web client with Gmail and Calendar APIs enabled. Set `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET`; register `${PUBLIC_API_URL}/api/google/callback` as its redirect URI. Configure consent/test-user access in your Google project.
 5. Open **Apps → Gmail** (or **Google Calendar**), connect read access, and grant write access when needed. Every send or calendar change still requires its own stored review. Changing/disconnecting the account invalidates pending connection-bound work.
 
-Google credentials are encrypted at rest. File URLs and browser consoles use short-lived signatures. This deployment uses one owner protected by a shared access key; it is not a multi-tenant authentication system. Use HTTPS and restricted network access for a remote host. Keep the default local-data mode on loopback.
+Google credentials are encrypted at rest. File URLs and browser consoles use short-lived signatures. This deployment supports multiple user accounts (username + password, scrypt-hashed, created via `POST /api/users/signup`; each user's data is isolated by owner). The legacy single shared `OPENMUSE_ACCESS_KEY` still works. Set `ALLOW_SIGNUP=false` to disable public registration. Use HTTPS and restricted network access for a remote host. Keep the default local-data mode on loopback.
 
 ## Public web search
 

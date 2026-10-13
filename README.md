@@ -142,7 +142,7 @@ The Docker computer and Google mail or calendar need the setup in the sections b
 Copy the commented settings in [.env.example](.env.example) into your private `.env`:
 
 1. Set `AGENT_BACKEND=model`, `MODEL=provider/model-id`, and the matching provider key. CopilotKit supports the configured OpenAI, Anthropic or Google provider. Fictional data can still be used with a real model. Provider keys stay on the server. Any OpenAI-compatible endpoint works via `OPENAI_BASE_URL` (for example a model relay): with it set, prefix the model ID with `openai/`, e.g. `MODEL=openai/gemini-3.8-flash` with `OPENAI_BASE_URL=https://sapi.zly168.cn/v1` and the relay's key in `OPENAI_API_KEY`. Endpoints whose Responses API tool loop is incomplete can set `OPENAI_CHAT_COMPLETIONS=true` to use the Chat Completions wire format instead.
-2. Create or select a CopilotKit Intelligence project with `npx copilotkit@latest login` and `npx copilotkit@latest project select`. Keep the generated `CPK_INTELLIGENCE_API_KEY` on the server.
+2. Optional: CopilotKit Intelligence enables Rich Threads (durable thread list, rename/archive/restore, cross-device history). Create or select a project with `npx copilotkit@latest login` and `npx copilotkit@latest project select`, and keep the generated `CPK_INTELLIGENCE_API_KEY` on the server. Without it, chat still works with the local conversation.
 3. For personal mail/calendar, set `WORKSPACE_MODE=live`, the generated `CPK_INTELLIGENCE_API_KEY`, a random `OPENMUSE_ACCESS_KEY` of at least 24 characters, and `TOKEN_ENCRYPTION_KEY` containing 32 random bytes encoded as base64. Restart the API.
 4. Configure a Google OAuth web client with Gmail and Calendar APIs enabled. Set `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET`; register `${PUBLIC_API_URL}/api/google/callback` as its redirect URI. Configure consent/test-user access in your Google project.
 5. Open **Apps → Gmail** (or **Google Calendar**), connect read access, and grant write access when needed. Every send or calendar change still requires its own stored review. Changing/disconnecting the account invalidates pending connection-bound work.
@@ -203,7 +203,7 @@ The CopilotKit SDK sends runtime telemetry through the shared CopilotKit sink to
 flowchart TD
   Client[Expo / React Native / Web] -->|AG-UI and authenticated API| API[Hono + CopilotKit runtime]
   API --> Tasks[Durable task worker]
-  API --> Threads[CopilotKit Intelligence required in every mode]
+  API --> Threads[CopilotKit Intelligence optional; SSE mode + local conversation without it]
   API --> Store[(PGlite or PostgreSQL)]
   Tasks --> Store
   Tasks --> Review[Stored action review]

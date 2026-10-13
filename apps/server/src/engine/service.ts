@@ -34,6 +34,27 @@ import { backgroundFailure } from "../log.ts";
 import { SearchService } from "../search.ts";
 import type { WorkspaceService } from "../workspace.ts";
 import { analyzeSpending } from "./finance.ts";
+
+/** Seed for the agent-maintained curated memory file. The agent reads it with
+ * read_memory and rewrites it with write_memory as durable facts emerge. */
+export const defaultMemoryFile = `# MEMORY.md — curated long-term memory
+
+Durable facts, preferences, decisions and open loops. Keep it tight: promote what
+lasts, drop what doesn't. Update it yourself with the write_memory tool (read it
+first with read_memory). Never store passwords, tokens or other secrets here.
+
+## Facts
+<!-- durable facts: name, timezone, accounts, projects, devices -->
+
+## Preferences
+<!-- how things should be done; standing directives -->
+
+## Decisions
+<!-- decisions made together, with dates -->
+
+## Open loops
+<!-- commitments and follow-ups not yet resolved -->
+`;
 import { executeModelTask } from "./model.ts";
 import {
   countPageDiff,
@@ -131,6 +152,11 @@ export class AgentService {
       id: "identity",
       name: "OpenMuse",
       tone: "warm",
+    });
+    await this.db.insertIfAbsent(owner, "memory-file", {
+      id: "MEMORY.md",
+      content: defaultMemoryFile,
+      updatedAt: new Date().toISOString(),
     });
   }
   async snapshot(owner: string): Promise<AgentWorkspace> {

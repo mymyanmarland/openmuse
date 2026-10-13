@@ -14,6 +14,7 @@ import {
 import { ActionService } from "./actions.ts";
 import { agentConfigured, makeRuntime } from "./agent.ts";
 import { createAuth } from "./auth.ts";
+import { brand } from "./brand.ts";
 import { BrowserService } from "./browser.ts";
 import { ComputerService, type DockerRunner } from "./computer.ts";
 import { computerRoutes } from "./computer-routes.ts";
@@ -383,7 +384,7 @@ export async function createApp(
     return new Response(body, { status: response.status, headers: response.headers });
   });
   app.get("/", (c) =>
-    c.json({ name: "OpenMuse", app: "http://localhost:8081", health: "/api/health" }),
+    c.json({ name: brand.name, app: "http://localhost:8081", health: "/api/health" }),
   );
   return { app, auth, files, actions, workspace, agent, computer };
 }

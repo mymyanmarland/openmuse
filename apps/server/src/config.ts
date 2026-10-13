@@ -34,6 +34,7 @@ export interface Config {
   publicUrl: string;
   dataDir: string;
   databaseUrl?: string;
+  allowSignup?: boolean;
   accessKey?: string;
   encryptionKey?: string;
   model?: string;
@@ -142,6 +143,7 @@ export function readConfig(): Config {
     dataDir: resolve(process.env.DATA_DIR ?? ".openmuse"),
     databaseUrl: process.env.DATABASE_URL,
     accessKey: process.env.OPENMUSE_ACCESS_KEY,
+    allowSignup: process.env.ALLOW_SIGNUP !== "false",
     encryptionKey: process.env.TOKEN_ENCRYPTION_KEY,
     model: process.env.MODEL,
     jevMode,

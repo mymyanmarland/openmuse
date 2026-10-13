@@ -47,7 +47,9 @@ export async function createApp(
   const browser = new BrowserService(db, config, auth, files);
   const computer = new ComputerService(db, config, options.docker);
   const agent = new AgentService(db, config, workspace, files, actions, browser, computer);
-  const intelligence = new CopilotKitIntelligence({ apiKey: config.intelligenceApiKey });
+  const intelligence = config.intelligenceApiKey
+    ? new CopilotKitIntelligence({ apiKey: config.intelligenceApiKey })
+    : undefined;
   const runtime = makeRuntime(config, agent, auth, intelligence);
   const app = new Hono<{ Variables: { owner: string } }>();
   const origins = new Set([...config.allowedOrigins, new URL(config.publicUrl).origin]);
@@ -206,6 +208,11 @@ export async function createApp(
     );
   });
   app.get("/api/main-thread", async (c) => {
+    if (!intelligence)
+      throw new AppError(
+        "Rich Threads are disabled: set CPK_INTELLIGENCE_API_KEY to enable durable threads.",
+        503,
+      );
     const owner = c.get("owner");
     await db.insertIfAbsent(owner, "conversation-settings", {
       id: "main",

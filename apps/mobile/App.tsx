@@ -40,6 +40,7 @@ import { Details } from "./src/details";
 import { BrowserScreen, CalendarScreen, FilesScreen, MailScreen } from "./src/screens";
 import { ThreadsProvider, ThreadsSheet, useMuseThread } from "./src/threads";
 import { Button, Card, colors, ErrorNotice, Field, IconButton, Mascot, s } from "./src/ui";
+import { strings } from "./src/strings";
 import { type Detail, useWorkspace, WorkspaceContext } from "./src/workspace";
 
 const nav: { id: Section; label: string; icon: LucideIcon }[] = [
@@ -127,25 +128,25 @@ export default function App() {
             >
               Welcome to OpenMuse.
             </Text>
-            <Text style={[s.muted, { textAlign: "center" }]}>A little room for your day.</Text>
+            <Text style={[s.muted, { textAlign: "center" }]}>{strings.app.tagline}</Text>
             {busy ? (
               <ActivityIndicator color={colors.blueDark} />
             ) : (
               <Card style={{ width: "100%" }}>
                 <ErrorNotice error={error} />
                 <Field
-                  label="Username"
+                  label={strings.auth.username}
                   value={username}
                   onChangeText={setUsername}
-                  placeholder="Your account username"
+                  placeholder={strings.auth.usernamePlaceholder}
                   autoCapitalize="none"
                 />
                 <Field
-                  label="Password"
+                  label={strings.auth.password}
                   value={password}
                   onChangeText={setPassword}
                   secureTextEntry
-                  placeholder="Your account password"
+                  placeholder={strings.auth.passwordPlaceholder}
                 />
                 <Button
                   primary
@@ -157,27 +158,26 @@ export default function App() {
                     )
                   }
                 >
-                  Sign in
+                  {strings.auth.signIn}
                 </Button>
                 <Button onPress={() => void signup()} disabled={!username.trim() || !password}>
-                  Create account
+                  {strings.auth.createAccount}
                 </Button>
                 <Field
-                  label="Workspace access key (legacy single-user)"
+                  label={strings.auth.accessKey}
                   value={accessKey}
                   onChangeText={setAccessKey}
                   secureTextEntry
-                  placeholder="Required for a live workspace"
+                  placeholder={strings.auth.accessKeyPlaceholder}
                 />
                 <Button
                   onPress={() => void connect(accessKey || undefined)}
                   disabled={!accessKey}
                 >
-                  Open with access key
+                  {strings.auth.openWithAccessKey}
                 </Button>
                 <Text style={[s.small, { marginTop: 15 }]}>
-                  Local workspaces open without a key. Make sure your OpenMuse server is running at{" "}
-                  {API_URL}.
+                  {strings.auth.localNote(API_URL)}
                 </Text>
               </Card>
             )}

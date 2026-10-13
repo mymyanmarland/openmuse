@@ -32,7 +32,7 @@ import {
   IdeasScreen,
 } from "./src/agent-ui";
 import { AgentWorkspaceProvider, useAgentWorkspace } from "./src/agent-workspace";
-import { API_URL, createSession, MuseApi } from "./src/api";
+import { API_URL, createAccount, createSession, MuseApi } from "./src/api";
 import { ChatScreen, WorkspaceTools } from "./src/chat";
 import { ComputerEntry } from "./src/computer";
 import { ComputerDraftProvider } from "./src/computer-drafts";
@@ -69,13 +69,15 @@ const titles: Partial<Record<Section, { title: string; subtitle: string }>> = {
 export default function App() {
   const [token, setToken] = useState("");
   const [accessKey, setAccessKey] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const [busy, setBusy] = useState(true);
   const [error, setError] = useState("");
-  const connect = useCallback(async (key?: string) => {
+  const connect = useCallback(async (key?: string, user?: string, pass?: string) => {
     setBusy(true);
     setError("");
     try {
-      const session = await createSession(key);
+      const session = await createSession(key, user, pass);
       setToken(session.token);
     } catch (e) {
       setError(e instanceof Error ? e.message : String(e));
@@ -83,6 +85,18 @@ export default function App() {
       setBusy(false);
     }
   }, []);
+  const signup = useCallback(async () => {
+    setBusy(true);
+    setError("");
+    try {
+      const session = await createAccount(username.trim(), password);
+      setToken(session.token);
+    } catch (e) {
+      setError(e instanceof Error ? e.message : String(e));
+    } finally {
+      setBusy(false);
+    }
+  }, [username, password]);
   useEffect(() => {
     void connect();
   }, [connect]);
@@ -120,14 +134,46 @@ export default function App() {
               <Card style={{ width: "100%" }}>
                 <ErrorNotice error={error} />
                 <Field
-                  label="Workspace access key"
+                  label="Username"
+                  value={username}
+                  onChangeText={setUsername}
+                  placeholder="Your account username"
+                  autoCapitalize="none"
+                />
+                <Field
+                  label="Password"
+                  value={password}
+                  onChangeText={setPassword}
+                  secureTextEntry
+                  placeholder="Your account password"
+                />
+                <Button
+                  primary
+                  onPress={() =>
+                    void connect(
+                      undefined,
+                      username.trim() || undefined,
+                      username.trim() ? password : undefined,
+                    )
+                  }
+                >
+                  Sign in
+                </Button>
+                <Button onPress={() => void signup()} disabled={!username.trim() || !password}>
+                  Create account
+                </Button>
+                <Field
+                  label="Workspace access key (legacy single-user)"
                   value={accessKey}
                   onChangeText={setAccessKey}
                   secureTextEntry
                   placeholder="Required for a live workspace"
                 />
-                <Button primary onPress={() => void connect(accessKey || undefined)}>
-                  Open workspace
+                <Button
+                  onPress={() => void connect(accessKey || undefined)}
+                  disabled={!accessKey}
+                >
+                  Open with access key
                 </Button>
                 <Text style={[s.small, { marginTop: 15 }]}>
                   Local workspaces open without a key. Make sure your OpenMuse server is running at{" "}

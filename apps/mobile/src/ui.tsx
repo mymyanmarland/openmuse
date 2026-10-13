@@ -15,20 +15,8 @@ import {
   type ViewStyle,
 } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-export const colors = {
-  canvas: "#FCFCFC",
-  card: "#FFFFFF",
-  text: "#11191C",
-  muted: "#697176",
-  line: "#EEEEF0",
-  blue: "#C8E7FF",
-  blueDark: "#1473C8",
-  sky: "#EDF7FD",
-  green: "#E3F3E8",
-  lavender: "#F0EEFA",
-  orange: "#FDF0DF",
-  danger: "#AA4A45",
-};
+import { brand, colors } from "./brand";
+export { colors };
 export const s = StyleSheet.create({
   row: { flexDirection: "row", alignItems: "center" },
   between: { flexDirection: "row", alignItems: "center", justifyContent: "space-between" },
@@ -399,7 +387,7 @@ export function LinkRow({
     </Pressable>
   );
 }
-/** OpenMuse's original capybara, shared by every assistant surface. */
+/** Brand mascot, shared by every assistant surface. Logo comes from brand.ts. */
 export function Mascot({
   size = 42,
   variant = "sky",
@@ -413,7 +401,7 @@ export function Mascot({
     lilac: "#F1ECF9",
   }[variant];
   return (
-    <View accessibilityLabel="OpenMuse capybara" style={{ width: size, height: size }}>
+    <View accessibilityLabel={`${brand.name} logo`} style={{ width: size, height: size }}>
       <View
         style={{
           position: "absolute",
@@ -426,7 +414,7 @@ export function Mascot({
         }}
       />
       <Image
-        source={require("../assets/capybara.png")}
+        source={brand.logo}
         resizeMode="contain"
         style={{ width: size, height: size }}
         accessible={false}

@@ -34,27 +34,23 @@ export function makeRuntime(
   // Built on first use, then shared so live mode reuses one TypeSafe client across requests.
   let jevAdapter: JevAdapter | undefined;
   const sharedJevAdapter = () => (jevAdapter ??= createJevAdapter(config));
-  const agents: AgentsFactory = async ({ request }) => ({
-    default:
-      config.agentBackend === "sample"
-        ? new ConversationAgent(
-            config,
-            service,
-            await auth.owner(request.headers.get("authorization") ?? undefined),
-            sharedJevAdapter(),
-          )
-        : config.agentBackend === "agui"
-          ? new HttpAgent({
-              url: config.agentUrl ?? "http://127.0.0.1:1/unconfigured",
-              headers: config.agentToken ? { Authorization: `Bearer ${config.agentToken}` } : {},
-            })
-          : new ConversationAgent(
-              config,
-              service,
-              await auth.owner(request.headers.get("authorization") ?? undefined),
-              sharedJevAdapter(),
-            ),
-  });
+  const agents: AgentsFactory = async ({ request }) => {
+    if (config.agentBackend === "agui")
+      return {
+        default: new HttpAgent({
+          url: config.agentUrl ?? "http://127.0.0.1:1/unconfigured",
+          headers: config.agentToken ? { Authorization: `Bearer ${config.agentToken}` } : {},
+        }),
+      };
+    const owner = await auth.owner(request.headers.get("authorization") ?? undefined);
+    const memoryFile = await service.db
+      .get<{ content: string }>(owner, "memory-file", "MEMORY.md")
+      .catch(() => undefined);
+    const memory = memoryFile?.content?.trim() ? memoryFile.content.trim() : undefined;
+    return {
+      default: new ConversationAgent(config, service, owner, sharedJevAdapter(), memory),
+    };
+  };
   // The shared CopilotKit sink carries this tag onto existing PostHog events.
   const telemetryProperties = { accessibility_title: "OpenMuse" };
   // Without an Intelligence key the runtime runs in SSE mode: chat and tools work,

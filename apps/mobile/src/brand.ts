@@ -1,15 +1,15 @@
 // Brand constants — the single place to change when rebranding.
-// Defaults are the upstream OpenMuse identity; the final name/logo are decided
-// separately (see docs/REBRAND.md). Do not put secrets here.
+// Product identity: ShweMind (decided 2026-10-15). Logo asset swap is still
+// pending (see docs/REBRAND.md). Do not put secrets here.
 
 export const brand = {
   /** Product name shown in the UI. */
-  name: "OpenMuse",
+  name: "ShweMind",
   /** Expo slug / URL scheme. Changing this also needs app.json + native identifiers. */
-  slug: "openmuse",
-  scheme: "openmuse",
+  slug: "shwemind",
+  scheme: "shwemind",
   /** Title on the sign-in screen. */
-  welcomeTitle: "Welcome to OpenMuse.",
+  welcomeTitle: "Welcome to ShweMind.",
   /** Logo asset. Swap the file to rebrand the mascot everywhere. */
   logo: require("../assets/capybara.png"),
 } as const;

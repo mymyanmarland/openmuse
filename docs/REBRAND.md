@@ -1,7 +1,8 @@
 # Rebrand checklist
 
 Brand constants are centralized so a rename needs no code archaeology. The
-final name/logo are **not decided yet** — when they are, work through this list.
+final name is **ShweMind** (decided 2026-10-15) — applied to code + app.json +
+README. Still open: **logo asset** (currently the upstream capybara).
 
 ## One-place changes (code)
 

@@ -1,8 +1,10 @@
   <div align="center">
 
-# OpenMuse
+# ShweMind
 
 **A personal agent with a browser, terminal, files, and work that keeps going. Compatible with any agent harness.**
+
+> Forked from [CopilotKit/OpenMuse](https://github.com/CopilotKit/OpenMuse) (MIT) and customized — zly168 relay support, optional Intelligence, multi-user auth, curated memory, localization groundwork.
 
 Ask for an outcome. Follow the plan, review actions, and come back to the result.
 Built with CopilotKit React Native for iOS, Android, and web.

@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600" role="img" aria-label="ShweMind feature highlights">
+<rect width="1200" height="600" fill="#0a0f14" rx="14"/>
+<text x="600" y="58" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="34" font-weight="800" fill="#e8eef2">Built different, on purpose.</text><text x="600" y="88" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="16" fill="#93a3b3">Everything the alpha ships, and the ShweMind-only upgrades.</text><g>
+<rect x="30" y="120" width="360" height="200" rx="16" fill="#101a22" stroke="#22303c" stroke-width="1.5"/>
+<rect x="30" y="120" width="360" height="200" rx="16" fill="none" stroke="#00c9a7" stroke-width="1.5" opacity="0.45" stroke-dasharray="7 9"><animate attributeName="stroke-dashoffset" from="0" to="64" dur="3.2s" begin="0.0s" repeatCount="indefinite"/></rect>
+<g transform="translate(86,172)"><rect x="-26" y="-20" width="52" height="40" rx="6" fill="none" stroke="#00c9a7" stroke-width="3"/><line x1="-26" y1="-8" x2="26" y2="-8" stroke="#00c9a7" stroke-width="3"/><circle cx="-16" cy="-14" r="2.6" fill="#00c9a7"/></g>
+<circle cx="352" cy="150" r="6" fill="#00c9a7"><animate attributeName="opacity" values="1;0.2;1" dur="2.4s" begin="0.0s" repeatCount="indefinite"/></circle>
+<text x="58" y="236" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="20" font-weight="700" fill="#e8eef2">Take-Control Browser</text>
+<text x="58" y="264" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="14" fill="#93a3b3">Persistent Chromium. Watch it work inline,</text>
+<text x="58" y="286" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="14" fill="#93a3b3">then take over the session yourself.</text>
+</g><g>
+<rect x="420" y="120" width="360" height="200" rx="16" fill="#101a22" stroke="#22303c" stroke-width="1.5"/>
+<rect x="420" y="120" width="360" height="200" rx="16" fill="none" stroke="#00c9a7" stroke-width="1.5" opacity="0.45" stroke-dasharray="7 9"><animate attributeName="stroke-dashoffset" from="0" to="64" dur="3.2s" begin="0.4s" repeatCount="indefinite"/></rect>
+<g transform="translate(476,172)"><rect x="-26" y="-20" width="52" height="40" rx="6" fill="none" stroke="#00c9a7" stroke-width="3"/><text x="-14" y="8" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20" font-weight="bold" fill="#00c9a7">>_</text></g>
+<circle cx="742" cy="150" r="6" fill="#00c9a7"><animate attributeName="opacity" values="1;0.2;1" dur="2.4s" begin="0.3s" repeatCount="indefinite"/></circle>
+<text x="448" y="236" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="20" font-weight="700" fill="#e8eef2">Own Linux Terminal</text>
+<text x="448" y="264" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="14" fill="#93a3b3">Its own shell and workspace files,</text>
+<text x="448" y="286" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="14" fill="#93a3b3">with saved receipts for every command.</text>
+</g><g>
+<rect x="810" y="120" width="360" height="200" rx="16" fill="#101a22" stroke="#22303c" stroke-width="1.5"/>
+<rect x="810" y="120" width="360" height="200" rx="16" fill="none" stroke="#00c9a7" stroke-width="1.5" opacity="0.45" stroke-dasharray="7 9"><animate attributeName="stroke-dashoffset" from="0" to="64" dur="3.2s" begin="0.8s" repeatCount="indefinite"/></rect>
+<g transform="translate(866,172)"><circle cx="0" cy="-4" r="14" fill="none" stroke="#00c9a7" stroke-width="3"/><circle cx="-24" cy="12" r="6" fill="#00c9a7"/><circle cx="24" cy="12" r="6" fill="#00c9a7"/><line x1="-11" y1="4" x2="-20" y2="10" stroke="#00c9a7" stroke-width="2.5"/><line x1="11" y1="4" x2="20" y2="10" stroke="#00c9a7" stroke-width="2.5"/></g>
+<circle cx="1132" cy="150" r="6" fill="#00c9a7"><animate attributeName="opacity" values="1;0.2;1" dur="2.4s" begin="0.6s" repeatCount="indefinite"/></circle>
+<text x="838" y="236" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="20" font-weight="700" fill="#e8eef2">Curated Memory</text>
+<text x="838" y="264" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="14" fill="#93a3b3">A MEMORY.md the agent maintains itself —</text>
+<text x="838" y="286" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="14" fill="#93a3b3">it remembers across every chat.</text>
+</g><g>
+<rect x="30" y="352" width="360" height="200" rx="16" fill="#101a22" stroke="#22303c" stroke-width="1.5"/>
+<rect x="30" y="352" width="360" height="200" rx="16" fill="none" stroke="#00c9a7" stroke-width="1.5" opacity="0.45" stroke-dasharray="7 9"><animate attributeName="stroke-dashoffset" from="0" to="64" dur="3.2s" begin="1.2000000000000002s" repeatCount="indefinite"/></rect>
+<g transform="translate(86,404)"><circle cx="-10" cy="-8" r="9" fill="none" stroke="#00c9a7" stroke-width="3"/><circle cx="14" cy="-4" r="7" fill="none" stroke="#00c9a7" stroke-width="3"/><path d="M-26 18 Q-10 6 6 18" fill="none" stroke="#00c9a7" stroke-width="3"/><path d="M4 18 Q14 10 26 16" fill="none" stroke="#00c9a7" stroke-width="3"/></g>
+<circle cx="352" cy="382" r="6" fill="#00c9a7"><animate attributeName="opacity" values="1;0.2;1" dur="2.4s" begin="0.8999999999999999s" repeatCount="indefinite"/></circle>
+<text x="58" y="468" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="20" font-weight="700" fill="#e8eef2">Multi-User Auth</text>
+<text x="58" y="496" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="14" fill="#93a3b3">Real signup and login, scrypt hashing,</text>
+<text x="58" y="518" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="14" fill="#93a3b3">per-user data isolation.</text>
+</g><g>
+<rect x="420" y="352" width="360" height="200" rx="16" fill="#101a22" stroke="#22303c" stroke-width="1.5"/>
+<rect x="420" y="352" width="360" height="200" rx="16" fill="none" stroke="#00c9a7" stroke-width="1.5" opacity="0.45" stroke-dasharray="7 9"><animate attributeName="stroke-dashoffset" from="0" to="64" dur="3.2s" begin="1.6s" repeatCount="indefinite"/></rect>
+<g transform="translate(476,404)"><polygon points="4,-22 -12,4 -2,4 -6,20 12,-4 2,-4" fill="#00c9a7"/></g>
+<circle cx="742" cy="382" r="6" fill="#00c9a7"><animate attributeName="opacity" values="1;0.2;1" dur="2.4s" begin="1.2s" repeatCount="indefinite"/></circle>
+<text x="448" y="468" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="20" font-weight="700" fill="#e8eef2">zly168 Relay Ready</text>
+<text x="448" y="496" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="14" fill="#93a3b3">Any OpenAI-compatible endpoint</text>
+<text x="448" y="518" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="14" fill="#93a3b3">via OPENAI_BASE_URL. Your key, your bill.</text>
+</g><g>
+<rect x="810" y="352" width="360" height="200" rx="16" fill="#101a22" stroke="#22303c" stroke-width="1.5"/>
+<rect x="810" y="352" width="360" height="200" rx="16" fill="none" stroke="#00c9a7" stroke-width="1.5" opacity="0.45" stroke-dasharray="7 9"><animate attributeName="stroke-dashoffset" from="0" to="64" dur="3.2s" begin="2.0s" repeatCount="indefinite"/></rect>
+<g transform="translate(866,404)"><path d="M-24 2 L0 -18 L24 2" fill="none" stroke="#00c9a7" stroke-width="3"/><rect x="-14" y="2" width="28" height="18" fill="none" stroke="#00c9a7" stroke-width="3"/><rect x="-5" y="9" width="10" height="11" fill="#00c9a7"/></g>
+<circle cx="1132" cy="382" r="6" fill="#00c9a7"><animate attributeName="opacity" values="1;0.2;1" dur="2.4s" begin="1.5s" repeatCount="indefinite"/></circle>
+<text x="838" y="468" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="20" font-weight="700" fill="#e8eef2">Local-First Mode</text>
+<text x="838" y="496" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="14" fill="#93a3b3">Runs fully without the Intelligence cloud key.</text>
+<text x="838" y="518" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="14" fill="#93a3b3">Your server, your data.</text>
+</g>
+</svg>

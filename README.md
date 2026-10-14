@@ -1,38 +1,47 @@
   <div align="center">
 
-# ShweMind
+<img src="./assets/readme/hero.svg" width="100%" alt="ShweMind — a personal agent with a browser, terminal, files, and work that keeps going."/>
 
-**A personal agent with a browser, terminal, files, and work that keeps going. Compatible with any agent harness.**
+[![MIT license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![zly168 ready](https://img.shields.io/badge/zly168-relay_ready-005e62)](#configure-the-agent-and-google)
+[![multi-user](https://img.shields.io/badge/auth-multi--user-005e62)](#features)
+[![local-first](https://img.shields.io/badge/mode-local--first-005e62)](docs/RICH-THREADS.md)
+[![curated memory](https://img.shields.io/badge/memory-curated-005e62)](docs/MEMORY.md)
 
-> Forked from [CopilotKit/OpenMuse](https://github.com/CopilotKit/OpenMuse) (MIT) and customized — zly168 relay support, optional Intelligence, multi-user auth, curated memory, localization groundwork.
-
-Ask for an outcome. Follow the plan, review actions, and come back to the result.
+**ShweMind is a personal AI agent with its own computer — ask for an outcome, follow the plan, review actions, and come back to the result.**
 Built with CopilotKit React Native for iOS, Android, and web.
 
-[Quick start](#quick-start) · [Demo](#demo) · [Features](#features) · [Architecture](#architecture) · [Docs](docs/README.md) · [Contributing](CONTRIBUTING.md)
+> Forked from [CopilotKit/OpenMuse](https://github.com/CopilotKit/OpenMuse) (MIT) and rebuilt for real-world use: zly168 relay support, optional Intelligence (local-first mode), real multi-user auth, curated memory, Burmese locale scaffolding.
 
-[![CI](https://github.com/CopilotKit/OpenMuse/actions/workflows/ci.yml/badge.svg)](https://github.com/CopilotKit/OpenMuse/actions/workflows/ci.yml)
-[![MIT license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[Quick start](#quick-start) · [Why ShweMind](#why-shwemind) · [Demo](#demo) · [Features](#features) · [Architecture](#architecture) · [Docs](docs/README.md) · [Contributing](CONTRIBUTING.md)
 
-<a href="https://trendshift.io/repositories/254992?utm_source=trendshift-badge&amp;utm_medium=badge&amp;utm_campaign=badge-trendshift-254992" target="_blank" rel="noopener noreferrer"><img src="https://trendshift.io/api/badge/trendshift/repositories/254992/daily?language=TypeScript" alt="CopilotKit%2Fopenmuse | Trendshift" width="250" height="55"/></a>
-
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/CopilotKit/OpenMuse)
-
-Clone this template and customize it however you want.
-
-**[Building on OpenMuse? Meet with the CopilotKit team →](https://www.copilotkit.ai/talk-to-an-engineer?ref=openmuse_hero)**
-
-https://github.com/user-attachments/assets/8014d185-346c-4954-8ff0-26c582c5093a
-
-https://github.com/user-attachments/assets/0cc87de0-c3c1-4f24-b7df-e7d04bb946fd
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/mymyanmarland/shwemind)
 
 </div>
 
 > **Alpha, for self-hosting and building on.** Open-ended reasoning, live Google accounts, and CopilotKit Rich Threads require their own configuration. See [what is verified](docs/VERIFICATION.md) and the [roadmap](ROADMAP.md).
 
+## Why ShweMind
+
+Tell it the outcome. It handles the rest — ShweMind runs its **own computer**: a persistent Chromium browser you can watch inline and **take control of** mid-task, a Linux terminal with saved receipts for every command, and workspace files it edits for you. Tasks are durable (pause, resume, retry), goals keep watch while you're away, and the agent maintains its own curated memory across every chat.
+
+<p align="center">
+<img src="./assets/readme/terminal.svg" width="760" alt="ShweMind agent session — ask for an outcome, get the work done."/>
+</p>
+
+<p align="center">
+<img src="./assets/readme/features.svg" width="100%" alt="ShweMind feature highlights: take-control browser, Linux terminal, curated memory, multi-user auth, zly168 relay, local-first mode."/>
+</p>
+
+### How it flows
+
+<p align="center">
+<img src="./assets/readme/architecture.svg" width="100%" alt="ShweMind architecture: Apps to API Server to Agent Engine, fanning out to the Browser Worker and the zly168 model relay."/>
+</p>
+
 ## Demo
 
-On iPhone, ask OpenMuse to find interesting stories on Hacker News and summarize CopilotKit. On desktop, ask it to check the school-trip email, open the message, and research exhibits at Monterey Bay Aquarium. The agent shows email and browser results inline. **Take control** opens that same browser session when you need it.
+On iPhone, ask ShweMind to find interesting stories on Hacker News and summarize CopilotKit. On desktop, ask it to check the school-trip email, open the message, and research exhibits at Monterey Bay Aquarium. The agent shows email and browser results inline. **Take control** opens that same browser session when you need it.
 
 The 38-second iPhone and 42-second desktop web demos show the current interface, framed in 16:9. The send arrow becomes a stop square inside the input pill while the agent replies, then switches back. Stopping keeps your draft intact. See the [recording notes](docs/DEMO.md) for the model setup and reproduction steps.
 
@@ -42,7 +51,7 @@ The [Jev aquarium-trip demo](docs/demos/jev-generative-ui.md) walks through a fi
 
 ## What it is
 
-OpenMuse is a personal-agent application with an agent computer, visible work, and rich results. It runs its own server, task worker, and browser worker. You can inspect and change the source under the MIT license.
+ShweMind is a personal-agent application with an agent computer, visible work, and rich results. It runs its own server, task worker, and browser worker. You can inspect and change the source under the MIT license.
 
 The computer combines **persistent Chromium and an optional Linux workspace**. The agent can browse public pages, run commands in its own container, work with files, and move PDFs between the computer and the app. You can open its browser or terminal and continue the work. Graphical desktops and autonomous checkout remain future work.
 
@@ -59,17 +68,17 @@ The computer combines **persistent Chromium and an optional Linux workspace**. T
 | **Finance** | Import transaction CSV to create a spending summary with categories, transactions, and a savings-goal action. |
 | **Gmail & Calendar** | Google OAuth adapters, complete mail threads, drafts/attachments, calendar discovery, and reviewed event creation/update/deletion. Live credentials required. |
 | **Personal context** | Editable name, tone, avatar, and memories. Background-update preferences and durable in-app notifications. |
-| **Rich Threads** | CopilotKit Intelligence persistence in every mode, with a stable main conversation, side chats, renaming, archiving, restoring, and replay. A server-only project key is required. |
+| **Rich Threads** | CopilotKit Intelligence persistence with a stable main conversation, side chats, renaming, archiving, restoring, and replay. The project key is optional — without it the server runs in local mode. |
 
 The [feature inventory](docs/FEATURES.md) describes implemented capabilities and planned extensions. Health/bank/social connectors, device push, voice, generated executable tools, and automatic reservations/payments are on the [roadmap](ROADMAP.md).
 
 ## Quick start
 
-**Requirements:** Node 24 LTS, pnpm 11.19.0, and a CopilotKit Intelligence project key. The local sample app needs no model, Google account, or Docker.
+**Requirements:** Node 24 LTS and pnpm 11.19.0. A CopilotKit Intelligence project key is optional — without it the server runs in local mode. The local sample app needs no model, Google account, or Docker.
 
 ```sh
-git clone https://github.com/CopilotKit/OpenMuse.git openmuse
-cd openmuse
+git clone https://github.com/mymyanmarland/shwemind.git shwemind
+cd shwemind
 pnpm install --frozen-lockfile
 cp .env.example .env
 npx copilotkit@latest login

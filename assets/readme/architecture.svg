@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-label="ShweMind architecture data flow">
+<rect width="1200" height="360" fill="#0a0f14" rx="14"/>
+<text x="600" y="40" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="24" font-weight="800" fill="#e8eef2">How it flows</text>
+<g>
+<rect x="26" y="146" width="198" height="72" rx="14" fill="none" stroke="#00c9a7" stroke-width="2" opacity="0"><animate attributeName="opacity" values="0;0.55;0" dur="3s" repeatCount="indefinite"/></rect>
+<rect x="30" y="150" width="190" height="64" rx="12" fill="#101a22" stroke="#23414a" stroke-width="1.5"/>
+<text x="125.0" y="177" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="17" font-weight="700" fill="#e8eef2">Apps</text>
+<text x="125.0" y="198" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12.5" fill="#93a3b3">iOS · Android · Web</text>
+</g>
+<g>
+<rect x="316" y="146" width="198" height="72" rx="14" fill="none" stroke="#00c9a7" stroke-width="2" opacity="0"><animate attributeName="opacity" values="0;0.55;0" dur="3s" repeatCount="indefinite"/></rect>
+<rect x="320" y="150" width="190" height="64" rx="12" fill="#101a22" stroke="#23414a" stroke-width="1.5"/>
+<text x="415.0" y="177" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="17" font-weight="700" fill="#e8eef2">API Server</text>
+<text x="415.0" y="198" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12.5" fill="#93a3b3">Hono · SSE / Intelligence</text>
+</g>
+<g>
+<rect x="606" y="146" width="198" height="72" rx="14" fill="none" stroke="#00c9a7" stroke-width="2" opacity="0"><animate attributeName="opacity" values="0;0.55;0" dur="3s" repeatCount="indefinite"/></rect>
+<rect x="610" y="150" width="190" height="64" rx="12" fill="#101a22" stroke="#23414a" stroke-width="1.5"/>
+<text x="705.0" y="177" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="17" font-weight="700" fill="#e8eef2">Agent Engine</text>
+<text x="705.0" y="198" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12.5" fill="#93a3b3">tools · memory · tasks</text>
+</g>
+<g>
+<rect x="896" y="56" width="248" height="72" rx="14" fill="none" stroke="#00c9a7" stroke-width="2" opacity="0"><animate attributeName="opacity" values="0;0.55;0" dur="3s" repeatCount="indefinite"/></rect>
+<rect x="900" y="60" width="240" height="64" rx="12" fill="#101a22" stroke="#23414a" stroke-width="1.5"/>
+<text x="1020.0" y="87" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="17" font-weight="700" fill="#e8eef2">Browser Worker</text>
+<text x="1020.0" y="108" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12.5" fill="#93a3b3">Playwright · take control</text>
+</g>
+<g>
+<rect x="896" y="236" width="248" height="72" rx="14" fill="none" stroke="#00c9a7" stroke-width="2" opacity="0"><animate attributeName="opacity" values="0;0.55;0" dur="3s" repeatCount="indefinite"/></rect>
+<rect x="900" y="240" width="240" height="64" rx="12" fill="#101a22" stroke="#23414a" stroke-width="1.5"/>
+<text x="1020.0" y="267" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="17" font-weight="700" fill="#e8eef2">Model Relay</text>
+<text x="1020.0" y="288" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12.5" fill="#93a3b3">zly168 · OpenAI-compatible</text>
+</g>
+<path d="M220 182 H320" stroke="#23414a" stroke-width="2.5" fill="none"/>
+<path d="M510 182 H610" stroke="#23414a" stroke-width="2.5" fill="none"/>
+<path d="M800 170 C 855 170, 855 92, 900 92" stroke="#23414a" stroke-width="2.5" fill="none"/>
+<path d="M800 194 C 855 194, 855 272, 900 272" stroke="#23414a" stroke-width="2.5" fill="none"/>
+<circle r="5" fill="#00c9a7" opacity="0.95"><animateMotion dur="1.6s" begin="0s" repeatCount="indefinite" path="M220 182 H320"/></circle><circle r="5" fill="#00c9a7" opacity="0.95"><animateMotion dur="1.6s" begin="0.8s" repeatCount="indefinite" path="M220 182 H320"/></circle>
+<circle r="5" fill="#00c9a7" opacity="0.95"><animateMotion dur="1.6s" begin="0.4s" repeatCount="indefinite" path="M510 182 H610"/></circle><circle r="5" fill="#00c9a7" opacity="0.95"><animateMotion dur="1.6s" begin="1.2s" repeatCount="indefinite" path="M510 182 H610"/></circle>
+<circle r="5" fill="#00c9a7" opacity="0.95"><animateMotion dur="2.2s" begin="0.2s" repeatCount="indefinite" path="M800 170 C 855 170, 855 92, 900 92"/></circle><circle r="5" fill="#00c9a7" opacity="0.95"><animateMotion dur="2.2s" begin="1.3s" repeatCount="indefinite" path="M800 170 C 855 170, 855 92, 900 92"/></circle>
+<circle r="5" fill="#00c9a7" opacity="0.95"><animateMotion dur="2.2s" begin="0.7s" repeatCount="indefinite" path="M800 194 C 855 194, 855 272, 900 272"/></circle><circle r="5" fill="#00c9a7" opacity="0.95"><animateMotion dur="2.2s" begin="1.8s" repeatCount="indefinite" path="M800 194 C 855 194, 855 272, 900 272"/></circle>
+<text x="270" y="172" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" fill="#93a3b3">chat</text>
+<text x="560" y="172" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" fill="#93a3b3">plan</text>
+<text x="862" y="132" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" fill="#93a3b3">browse</text>
+<text x="862" y="232" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" fill="#93a3b3">reason</text>
+</svg>

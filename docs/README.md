@@ -1,6 +1,6 @@
-# OpenMuse documentation
+# ShweMind documentation
 
-## Watch OpenMuse
+## Watch ShweMind
 
 [iPhone demo · 38 seconds](../assets/demos/2026-09-16/mobile.mp4) · [Web demo · 42 seconds](../assets/demos/2026-09-16/web.mp4) · [Recording notes and reproduction](DEMO.md)
 
@@ -8,6 +8,8 @@ The demos follow a request from chat to the agent's inline browser, then show ho
 
 ## Guides
 
+- [Setup guide — quick start, deploy, configuration](SETUP.md)
+- [Architecture](ARCHITECTURE.md)
 - [Quick start and architecture](../README.md)
 - [Native iOS / Android / web setup](../apps/mobile/README.md)
 - [Browser worker, API, persistence, and network boundary](../apps/worker/README.md)
